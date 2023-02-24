@@ -1,4 +1,4 @@
-# pokeemerald Expansion
+# pokeemerald
 
 ## What is the pokeemerald Expansion?
 
