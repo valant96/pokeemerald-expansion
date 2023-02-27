@@ -263,14 +263,6 @@
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LittlerootTown_EventScript_MaysHouseSign"
-    },
-    {
-      "type": "hidden_item",
-      "x": 36,
-      "y": 15,
-      "elevation": 0,
-      "item": "ITEM_SURFBOARD",
-      "flag": "FLAG_TEMP_1"
     }
   ]
 }
