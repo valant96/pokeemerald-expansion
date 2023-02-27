@@ -2239,8 +2239,7 @@ static bool8 CanStartSurfing(s16 x, s16 y, u8 direction)
     }
 
     if ((gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT)
-     && MapGridGetZCoordAt(x, y) == 1
-     && GetObjectEventIdByXYZ(x, y, z) == OBJECT_EVENTS_COUNT)
+     && GetObjectEventIdByXY(x, y) == OBJECT_EVENTS_COUNT)
     {
         CreateStartSurfingTask(direction);
         return TRUE;
