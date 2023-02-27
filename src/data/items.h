@@ -9918,4 +9918,18 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 30,
     },
+
+    // Surfboard
+    [ITEM_SURFBOARD] =
+    {
+        .name = _("Surfboard"),
+        .itemId = ITEM_SURFBOARD,
+        .price = 0,
+        .description = sSurfboardDesc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = 4,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .secondaryId = 0,
+    },
 };

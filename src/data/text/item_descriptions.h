@@ -3817,3 +3817,8 @@ static const u8 sLoadedDiceDesc[] = _(
     "Rolls high numbers.\n"
     "Multihit strikes\n"
     "hit more times.");
+
+static const u8 sSurfboardDesc[] = _(
+	"This flat board\n"
+    "is shaped for\n"
+    "riding waves.");
