@@ -17,9 +17,16 @@
       "map": "MAP_ROUTE128",
       "offset": 40,
       "direction": "left"
+    },
+    {
+      "map": "MAP_LITTLEROOT_TOWN",
+      "offset": 63,
+      "direction": "left"
     }
   ],
-  "object_events": [],
+  "object_events": [
+
+  ],
   "warp_events": [
     {
       "x": 18,

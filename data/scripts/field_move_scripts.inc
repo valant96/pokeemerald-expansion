@@ -184,13 +184,14 @@ Text_StrengthActivated:
 
 EventScript_UseWaterfall::
 	lockall
-	checkpartymove MOVE_WATERFALL
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWaterfall
-	bufferpartymonnick STR_VAR_1, VAR_RESULT
-	setfieldeffectargument 0, VAR_RESULT
-	msgbox Text_WantToWaterfall, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_EndWaterfall
-	msgbox Text_MonUsedWaterfall, MSGBOX_DEFAULT
+	CheckItem ITEM_SURFBOARD, 1
+	compare VAR_RESULT, 1
+	goto_if_lt VAR_RESULT, EventScript_CantWaterfall
+	//bufferpartymonnick STR_VAR_1, VAR_RESULT
+	//setfieldeffectargument 0, VAR_RESULT
+	//msgbox Text_WantToWaterfall, MSGBOX_YESNO
+	//goto_if_eq VAR_RESULT, NO, EventScript_EndWaterfall
+	//msgbox Text_MonUsedWaterfall, MSGBOX_DEFAULT
 	dofieldeffect FLDEFF_USE_WATERFALL
 	goto EventScript_EndWaterfall
 
