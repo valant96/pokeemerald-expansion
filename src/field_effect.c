@@ -1847,7 +1847,7 @@ static bool8 WaterfallFieldEffect_Init(struct Task *task, struct ObjectEvent *ob
 
 static bool8 WaterfallFieldEffect_RideUp(struct Task *task, struct ObjectEvent *objectEvent)
 {
-    ObjectEventSetHeldMovement(objectEvent, GetWalkSlowMovementAction(DIR_NORTH));
+    ObjectEventSetHeldMovement(objectEvent, GetWalkNormalMovementAction(DIR_NORTH));
     task->tState++;
     return FALSE;
 }
