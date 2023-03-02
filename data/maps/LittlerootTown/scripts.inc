@@ -934,6 +934,10 @@ Script_PlayerHasTapu::
 	release
 	end
 
+LittlerootTown_ItemFullRestore::
+	finditem ITEM_FULL_RESTORE
+	end
+
 Text_PlayerHasTapu:
 	.string "Good luck on your journey!$"
 
