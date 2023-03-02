@@ -6,23 +6,14 @@
 #define FLIP    0
 #define NO_FLIP 1
 
-#if P_UPDATED_STATS >= GEN_6
-    #define PIKACHU_BASE_DEFENSES\
-        .baseDefense   = 40,     \
-        .baseSpDefense = 50
-#else
-    #define PIKACHU_BASE_DEFENSES\
-        .baseDefense   = 30,     \
-        .baseSpDefense = 40
-#endif
-
 #define PIKACHU_SPECIES_INFO(gender, flip)                                 \
     {                                                                      \
-        .baseHP        = 35,                                               \
-        .baseAttack    = 55,                                               \
-        .baseSpeed     = 90,                                               \
-        .baseSpAttack  = 50,                                               \
-        PIKACHU_BASE_DEFENSES,                                             \
+        .baseHP        = 45,                                               \
+        .baseAttack    = 80,                                               \
+        .baseSpeed     = 120,                                              \
+        .baseSpAttack  = 75,                                               \
+        .baseDefense   = 50,                                               \
+        .baseSpDefense = 60,                                               \
         .types = { TYPE_ELECTRIC, TYPE_ELECTRIC},                          \
         .catchRate = 190,                                                  \
         .expYield = 112,                                                   \
@@ -32,7 +23,7 @@
         .eggCycles = 10,                                                   \
         .friendship = 70,                                                  \
         .growthRate = GROWTH_MEDIUM_FAST,                                  \
-        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY},                                      \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY},                  \
         .abilities = {ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD},\
         .bodyColor = BODY_COLOR_YELLOW,                                    \
         .noFlip = flip,                                                    \
