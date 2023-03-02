@@ -73,6 +73,13 @@
               9
             ]
           }
+        },
+        {
+          "type": "hidden_mons",
+          "encounter_rates": [
+            50,
+            50
+          ]
         }
       ],
       "encounters": [
@@ -11557,6 +11564,21 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_CELEBI"
+              }
+            ]
+          },
+          "hidden_mons": {
+            "encounter_rate": 0,
+            "mons": [
+              {
+                "min_level": 40,
+                "max_level": 50,
+                "species": "SPECIES_SOLGALEO"
+              },
+              {
+                "min_level": 40,
+                "max_level": 50,
+                "species": "SPECIES_LUNALA"
               }
             ]
           }

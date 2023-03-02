@@ -924,6 +924,13 @@ LittlerootTown_EventScript_GiveTapuKoko::
 	release
 	end
 
+LittlerootTown_EventScript_DetectorMode::
+	lock
+	msgbox Text_PlayerHasFullParty, MSGBOX_DEFAULT
+	setflag FLAG_SYS_DETECTOR_MODE
+	release
+	end
+
 Script_PlayerHasFullParty::
 	msgbox Text_PlayerHasFullParty, MSGBOX_DEFAULT
 	release
@@ -937,6 +944,31 @@ Script_PlayerHasTapu::
 LittlerootTown_ItemFullRestore::
 	finditem ITEM_FULL_RESTORE
 	end
+
+LittlerootTown_ItemUltraBalls::
+	finditem ITEM_ULTRA_BALL, 50
+	end
+
+LittlerootTown_EventScript_GiveNavDex::
+	lock
+	goto_if_set FLAG_SYS_DEXNAV_GET, Script_PlayerHasNavDex	
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Text_TakeNavDex, MSGBOX_DEFAULT
+	waitfanfare
+	setflag FLAG_SYS_DEXNAV_GET
+	release
+	end
+
+Script_PlayerHasNavDex::
+	msgbox Text_PlayerHasNavDex, MSGBOX_DEFAULT
+	release
+	end
+
+Text_PlayerHasNavDex:
+	.string "You already have it!$"
+
+Text_TakeNavDex:
+	.string "Please, take this.$"
 
 Text_PlayerHasTapu:
 	.string "Good luck on your journey!$"
