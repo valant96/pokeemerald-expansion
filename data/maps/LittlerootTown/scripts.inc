@@ -912,6 +912,7 @@ LittlerootTown_EventScript_GiveRunningShoes::
 LittlerootTown_EventScript_GiveTapuKoko::
 	lock
 	msgbox Text_TakeTapuKoko, MSGBOX_DEFAULT
+	goto_if_set FLAG_TAPU_GIVEN, Script_PlayerHasTapu
 	getpartysize
 	compare VAR_RESULT, 6
 	goto_if_eq Script_PlayerHasFullParty
@@ -919,6 +920,7 @@ LittlerootTown_EventScript_GiveTapuKoko::
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox Text_ReceivedTapuKoko, MSGBOX_DEFAULT
 	waitfanfare
+	setflag FLAG_TAPU_GIVEN
 	release
 	end
 
@@ -926,6 +928,14 @@ Script_PlayerHasFullParty::
 	msgbox Text_PlayerHasFullParty, MSGBOX_DEFAULT
 	release
 	end
+
+Script_PlayerHasTapu::
+	msgbox Text_PlayerHasTapu, MSGBOX_DEFAULT
+	release
+	end
+
+Text_PlayerHasTapu:
+	.string "Good luck on your journey!$"
 
 Text_TakeTapuKoko:
 	.string "Please, take this Guardian.$"
