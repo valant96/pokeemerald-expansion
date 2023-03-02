@@ -909,6 +909,33 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	delay 30
 	return
 
+LittlerootTown_EventScript_GiveTapuKoko::
+	lock
+	msgbox Text_TakeTapuKoko, MSGBOX_DEFAULT
+	getpartysize
+	compare VAR_RESULT, 6
+	goto_if_eq Script_PlayerHasFullParty
+	givemon SPECIES_TAPU_KOKO, 50, ITEM_LIFE_ORB
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Text_ReceivedTapuKoko, MSGBOX_DEFAULT
+	waitfanfare
+	release
+	end
+
+Script_PlayerHasFullParty::
+	msgbox Text_PlayerHasFullParty, MSGBOX_DEFAULT
+	release
+	end
+
+Text_TakeTapuKoko:
+	.string "Please, take this Guardian.$"
+
+Text_ReceivedTapuKoko:
+	.string "{PLAYER} received a Tapu Koko!$"
+
+Text_PlayerHasFullParty:
+	.string "Ah, your party is full.$"
+
 LittlerootTown_Text_OurNewHomeLetsGoInside:
 	.string "MOM: {PLAYER}, we're here, honey!\p"
 	.string "It must be tiring riding with our things\n"
