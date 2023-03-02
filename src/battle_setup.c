@@ -1151,16 +1151,18 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
         TrainerBattleLoadArgs(sContinueScriptDoubleBattleParams, data);
         SetMapVarsToTrainer();
         return EventScript_TryDoDoubleTrainerBattle;
-    case TRAINER_BATTLE_REMATCH_DOUBLE:
-        TrainerBattleLoadArgs(sDoubleBattleParams, data);
-        SetMapVarsToTrainer();
-        gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
-        return EventScript_TryDoDoubleRematchBattle;
-    case TRAINER_BATTLE_REMATCH:
-        TrainerBattleLoadArgs(sOrdinaryBattleParams, data);
-        SetMapVarsToTrainer();
-        gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
-        return EventScript_TryDoRematchBattle;
+    #ifndef FREE_MATCH_CALL    
+        case TRAINER_BATTLE_REMATCH_DOUBLE:
+            TrainerBattleLoadArgs(sDoubleBattleParams, data);
+            SetMapVarsToTrainer();
+            gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
+            return EventScript_TryDoDoubleRematchBattle;
+        case TRAINER_BATTLE_REMATCH:
+            TrainerBattleLoadArgs(sOrdinaryBattleParams, data);
+            SetMapVarsToTrainer();
+            gTrainerBattleOpponent_A = GetRematchTrainerId(gTrainerBattleOpponent_A);
+            return EventScript_TryDoRematchBattle;
+    #endif
     case TRAINER_BATTLE_PYRAMID:
         if (gApproachingTrainerId == 0)
         {
@@ -1606,6 +1608,7 @@ static void SetRematchIdForTrainer(const struct RematchTrainer *table, u32 table
 {
     s32 i;
 
+    #ifndef FREE_MATCH_CALL
     for (i = 1; i < REMATCHES_COUNT; i++)
     {
         u16 trainerId = table[tableId].trainerIds[i];
@@ -1617,6 +1620,7 @@ static void SetRematchIdForTrainer(const struct RematchTrainer *table, u32 table
     }
 
     gSaveBlock1Ptr->trainerRematches[tableId] = i;
+    #endif
 }
 
 static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u16 mapGroup, u16 mapNum)
@@ -1624,6 +1628,7 @@ static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u
     s32 i;
     bool32 ret = FALSE;
 
+    #ifndef FREE_MATCH_CALL
     for (i = 0; i <= REMATCH_SPECIAL_TRAINER_START; i++)
     {
         if (table[i].mapGroup == mapGroup && table[i].mapNum == mapNum && !IsRematchForbidden(i))
@@ -1641,7 +1646,7 @@ static bool32 UpdateRandomTrainerRematches(const struct RematchTrainer *table, u
             }
         }
     }
-
+    #endif
     return ret;
 }
 
@@ -1655,12 +1660,13 @@ static bool32 DoesSomeoneWantRematchIn_(const struct RematchTrainer *table, u16 
 {
     s32 i;
 
+    #ifndef FREE_MATCH_CALL
     for (i = 0; i < REMATCH_TABLE_ENTRIES; i++)
     {
         if (table[i].mapGroup == mapGroup && table[i].mapNum == mapNum && gSaveBlock1Ptr->trainerRematches[i] != 0)
             return TRUE;
     }
-
+    #endif
     return FALSE;
 }
 
